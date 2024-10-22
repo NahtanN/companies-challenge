@@ -1,0 +1,81 @@
+<mat-card>
+  <mat-card-title>Nova empresa</mat-card-title>
+
+  <form>
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input matInput [(ngModel)]="company.name" name="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="company.email" name="email" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Telefone</mat-label>
+      <input matInput [(ngModel)]="company.phone" name="phone" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>CNPJ</mat-label>
+      <input matInput [(ngModel)]="company.cnpj" name="cnpj" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Cidade</mat-label>
+      <input matInput [(ngModel)]="company.address.city" name="city" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Estado</mat-label>
+      <input
+        matInput
+        [(ngModel)]="company.address.state"
+        name="state"
+        maxlength="2"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Endereço</mat-label>
+      <input matInput [(ngModel)]="company.address.street" name="street" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Numero</mat-label>
+      <input matInput [(ngModel)]="company.address.number" name="number" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Bairro</mat-label>
+      <input
+        matInput
+        [(ngModel)]="company.address.neighborhood"
+        name="neighborhood"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>CEP</mat-label>
+      <input matInput [(ngModel)]="company.address.zipcode" name="zip" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Complemento</mat-label>
+      <input
+        matInput
+        [(ngModel)]="company.address.complement"
+        name="complement"
+      />
+    </mat-form-field>
+  </form>
+
+  <div>
+    <button mat-raised-button (click)="createCompany()" color="primary">
+      Salvar
+    </button>
+
+    <button mat-raised-button (click)="cancel()">Cancelar</button>
+  </div>
+</mat-card>

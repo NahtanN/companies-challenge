@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-title>Deletar Empresa</mat-card-title>
+
+  <form>
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input matInput [value]="company.name" name="name" disabled />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Preco (R$)</mat-label>
+      <input matInput [value]="company.email" name="price" disabled />
+    </mat-form-field>
+  </form>
+
+  <div>
+    <button mat-raised-button (click)="deleteCompany()" color="primary">
+      Deletar
+    </button>
+
+    <button mat-raised-button (click)="cancel()">Cancelar</button>
+  </div>
+</mat-card>

@@ -1,0 +1,40 @@
+services:
+  mysql:
+    image: mysql:latest
+    container_name: challenge-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: challenge
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: challenge-api
+    ports:
+      - "3000:3000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      DATABASE_USERNAME: root
+      DATABASE_PASSWORD: password
+      DATABASE_URL: mysql://root:password@mysql:3306/challenge
+      DATABASE_SCHEMA: challenge
+      DATABASE_HOST: mysql
+      DATABASE_PORT: 3306
+
+  front:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: challenge-front
+    ports:
+      - "4200:4200"

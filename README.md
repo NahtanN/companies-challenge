@@ -59,4 +59,4 @@ npm start
 
 ### Schema do banco de dados
 
-[Schema](./Mesha desafio.png)
+[Schema](./companies_schema.png)
